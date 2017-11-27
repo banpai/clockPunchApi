@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>语音识别-开关灯</title>
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="apple-mobile-web-app-capable" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="https://res.wx.qq.com/open/libs/weui/1.1.2/weui.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style-index.css" />
+    <style>
+        html,
+        body {
+            height: 100%;
+            background-image: url(timg.jpg);
+            background-repeat:no-repeat;
+            background-size: cover;
+        }
+        body {
+            font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+        }
+        #leafContainer {
+            background: rgba(51, 48, 48, 0.2);
+			position: fixed;
+			z-index: 2;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			overflow: hidden;
+		}
+		#leafContainer>div {
+			position: absolute;
+			max-width: 100px;
+			max-height: 100px;
+			-webkit-animation-iteration-count: infinite, infinite;
+			/* 1 ��ʾֻƮ��һ�� infinite Ϊ��*/
+			-webkit-animation-direction: normal, normal;
+			-webkit-animation-timing-function: linear, ease-in;
+		}
+		/*ѩ�����䶯��*/
+		#leafContainer>div>img {
+			width: 100%;
+			-webkit-animation-iteration-count: infinite;
+			-webkit-animation-direction: alternate;
+			-webkit-animation-timing-function: ease-in-out;
+			-webkit-transform-origin: 50% -100%;
+		}
+		@-webkit-keyframes fade {
+			0% {
+				opacity: 1;
+			}
+			95% {
+				opacity: 1;
+			}
+			100% {
+				opacity: 0;
+			}
+		}
+		@-webkit-keyframes drop {
+			0% {
+				-webkit-transform: translate(0px, -50px);
+			}
+			100% {
+				-webkit-transform: translate(0px, 650px);
+			}
+		}
+		@-webkit-keyframes clockwiseSpin {
+			0% {
+				-webkit-transform: rotate(-50deg);
+			}
+			100% {
+				-webkit-transform: rotate(50deg);
+			}
+		}
+		@-webkit-keyframes counterclockwiseSpinAndFlip {
+			0% {
+				-webkit-transform: scale(-1, 1) rotate(50deg);
+			}
+			100% {
+				-webkit-transform: scale(-1, 1) rotate(-50deg);
+			}
+		}
+    </style>
+</head>
+<script>
+    // ѩ������
+    const NUMBER_OF_LEAVES = 50;
+    function init() {
+        var container = document.getElementById('leafContainer');
+        for (var i = 0; i < NUMBER_OF_LEAVES; i++) {
+            container.appendChild(createALeaf());
+        }
+    }
+    function randomInteger(low, high) {
+        return low + Math.floor(Math.random() * (high - low));
+    }
+    function randomFloat(low, high) {
+        return low + Math.random() * (high - low);
+    }
+    function pixelValue(value) {
+        return value + 'px';
+    }
+    function durationValue(value) {
+        return value + 's';
+    }
+    function createALeaf() {
+        var leafDiv = document.createElement('div');
+        var image = document.createElement('img');
+        // ���ͼƬ��ַ+����  ��ʽΪ'../xx/xx'
+        image.src = 'snow' + randomInteger(1, 5) + '.png';
+        // ѩ����ʼλ��
+        leafDiv.style.top = "-10px";
+        // ѩ��������
+        leafDiv.style.left = pixelValue(randomInteger(0, 1000));
+        var spinAnimationName = (Math.random() < 0.5) ? 'clockwiseSpin' : 'counterclockwiseSpinAndFlip';
+        leafDiv.style.webkitAnimationName = 'fade, drop';
+        image.style.webkitAnimationName = spinAnimationName;
+        var fadeAndDropDuration = durationValue(randomFloat(5, 11));
+        var spinDuration = durationValue(randomFloat(4, 8));
+        leafDiv.style.webkitAnimationDuration = fadeAndDropDuration + ', ' + fadeAndDropDuration;
+        var leafDelay = durationValue(randomFloat(0, 5));
+        leafDiv.style.webkitAnimationDelay = leafDelay + ', ' + leafDelay;
+        image.style.webkitAnimationDuration = spinDuration;
+        leafDiv.appendChild(image);
+        return leafDiv;
+    }
+    window.addEventListener('load', init);
+
+</script>
+<body>
+        <div id="leafContainer">
+            <div id="ceshiluy"></div>
+        </div>
+    <div class="report_footer"></div>
+</body>
+
+<script src="../js/zepto.min.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+<script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.2/weui.min.js"></script>
+<script src="../js/voice.js?t=2017112366689"></script>
+
+</html>

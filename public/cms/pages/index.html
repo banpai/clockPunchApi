@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>举报信息查询系统－举报信息列表</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
+    <link href="../css/index/index.css" type="text/css" rel="stylesheet">
+    <link href="../css/index/iconfont/iconfont.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../css/index/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index/default.css">
+    <link rel="stylesheet" href="../css/index/swipebox.css">
+    <style type="text/css">
+        .htmleaf-icon,
+        .htmleaf-header h1 span {
+            color: #fff;
+        }
+
+        .container {
+            width: 40%;
+            margin: 30px auto;
+        }
+
+        .container:nth-child(even) {
+            background: whitesmoke
+        }
+
+        .container:nth-child(odd) {
+            background: #fff
+        }
+
+        #box-container {
+            margin: 0;
+            padding: 0
+        }
+
+        .box {
+            list-style-type: none;
+            float: left;
+            margin-bottom: 1rem;
+            margin-left: 1%;
+            margin-right: 1%;
+            width: 48%
+        }
+
+        .box:nth-child(2n+1) {
+            clear: both;
+            margin-left: 0
+        }
+
+        .box:nth-child(2n+0) {
+            margin-right: 0
+        }
+
+        .box a {
+            display: block;
+            width: 100%;
+            height: auto
+        }
+
+        .box a img {
+            -webkit-back-visibility: hidden;
+            display: block;
+            width: 100%;
+            height: auto;
+            vertical-align: bottom;
+        }
+    </style>
+    <!--[if IE]>
+		<script src="../js/html5shiv.min.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+    <div class="banner-wrapper">
+        <div class="logo">
+            <img src="../imgs/logo.png">
+            <div class="logo-word">
+                <div>举报信息查询系统</div>
+                <div>举报信息</div>
+            </div>
+        </div>
+        <div class="left-box">
+            <a class="register" id="login-out" title="退出">退出</a>
+        </div>
+    </div>
+    <div class="desktop-all-box">
+        <div class="desktop item-wrapper">
+            <div class="desktop-menu">
+                <ul>
+                    <li class="leftbar-item li-active">
+                        <a class="active">
+                            <i class="iconfont icon-list"></i>
+                            <span>举报信息列表</span>
+                        </a>
+                    </li>
+                    <!-- <li class="leftbar-item">
+                        <a class="active">
+                            <i class="iconfont icon-list"></i>
+                            <span>个人举报列表</span>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+            <div class="desktop-main">
+                <div class="order-box">
+                    <!--查询框 start-->
+                    <!-- <input type="text" placeholder="填写手机号或举报地址查询">
+                    <input type="time" placeholder="填写时间">-->
+                    <div class="cx">
+                        <input id="startTime" class="textbox" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="keytimestart" placeholder="开始时间"
+                            value="">--
+                        <input id="endtime" class="textbox" type="text" onClick="WdatePicker({el:this,dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="keytimeend"
+                            placeholder="结束时间" value="">
+                        <input id="report_value" type="text" class="textbox textbox_225" placeholder="名称或手机号或地址" name="keyword" value=""
+                        />
+                        <input type="submit" value="查询" class="group_btn" id="groub_search_12"/>
+                    </div>
+                    <!--查询框 end-->
+                    <table style="table-layout:fixed;" cellspacing="0" ng-show="docArr.length>0">
+                        <thead>
+                            <tr>
+                                <td width="10%" style="width: 100px;">名称</td>
+                                <td width="20%">手机号</td>
+                                <td width="20%">举报地址</td>
+                                <td width="30%">举报描述</td>
+                                <td width="50" height="50">举报图片</td>
+                                <td width="10%">时间</td>
+                                <!-- <td>操作</td> -->
+                            </tr>
+                        </thead>
+                        <tbody id="order-table">
+
+                        </tbody>
+                    </table>
+                    <div class="load-more" onclick="loadMore();">点击加载更多</div>
+                    <div class="no-more">没有更多数据了</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="global-tips">
+        <p></p>
+    </div>
+</body>
+
+<script src="../js/common.js" type="application/javascript"></script>
+<script src="../js/ios-orientationchange-fix.js"></script>
+<script src="../js/jquery-1.8.2.min.js" type="application/javascript"></script>
+<script src="../js/jquery.swipebox.js"></script>
+<script src="../My97DatePicker/WdatePicker.js"></script>
+<script src="../js/index.js" type="application/javascript"></script>
+
+</html>
