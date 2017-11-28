@@ -126,7 +126,7 @@ class Wechat extends Model
             return '不存在图片';
 //            exit();
         }
-            $URL ='http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token='.$TOKEN.'&type=image';
+        $URL ='http://file.api.weixin.qq.com/cgi-bin/media/upload?access_token='.$TOKEN.'&type=image';
 //        $data = array('media'=>'@'.$imgUrl);
         $mediaFile = realpath($imgUrl);
         $data   = array('media' => '@'.$mediaFile);

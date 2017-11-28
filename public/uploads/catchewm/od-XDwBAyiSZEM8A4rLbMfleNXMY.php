@@ -1,0 +1,1 @@
+<?php exit();?>{"ticket":"gQGF8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZFFLV1JDVEJmMzAxcmpnNGhxY3QAAgTTAx1aAwQAjScA","expire_seconds":1513146965,"url":"http:\/\/weixin.qq.com\/q\/02dQKWRCTBf301rjg4hqct"}

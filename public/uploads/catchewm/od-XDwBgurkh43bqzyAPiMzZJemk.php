@@ -1,1 +1,1 @@
-<?php exit();?>{"ticket":"gQGp8TwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyMkdPZVExVEJmMzAxM2RNLXhxY1AAAgTNoxZaAwQAjScA","expire_seconds":1512729166,"url":"http:\/\/weixin.qq.com\/q\/022GOeQ1TBf3013dM-xqcP"}
+<?php exit();?>{"ticket":"gQHu8DwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAyZWZ6UVJkVEJmMzAxcV8zNDFxY0QAAgS-9hxaAwQAjScA","expire_seconds":1513143616,"url":"http:\/\/weixin.qq.com\/q\/02efzQRdTBf301q_341qcD"}

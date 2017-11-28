@@ -11,13 +11,9 @@ namespace app\api\controller\clockPunch;
 
 use app\api\model\FriendShip;
 use app\api\model\Wechat;
-use app\api\validate\BaseurlValidate;
 use app\api\validate\OpenidValidate;
-use app\lib\Qcloud\Jssdk;
 use think\Db;
-use think\Log;
 use think\Session;
-use app\lib\Qcloud\Openid as OpenidModel;
 class Init
 {
     /**
@@ -35,13 +31,19 @@ class Init
                 $EventKey = $data['EventKey'];
                 $FromUserName = $data['FromUserName'];
                 $Event = $data['Event'];
+                if($EventKey){
+                    $strA = substr($EventKey, 0, 8);
+                    if($strA== 'qrscene_'){
+                        $len = strlen($EventKey) - 8;
+                        $EventKey = substr($EventKey, 8, $len);
+                    }
+                }
                 // 根据$data处理自己所要的逻辑
-                $filename = ROOT_PATH . '\\public\\static\\kk.php';
-                $fp = fopen($filename, "w");
-                $str = json_encode($data);
-                $flagC = $EventKey && ($EventKey != $FromUserName);
-                fwrite($fp,$str);
-                fclose($fp);
+//                $filename = ROOT_PATH . '\\public\\static\\mm.php';
+//                $fp = fopen($filename, "w");
+//                $str = json_encode($data);
+//                fwrite($fp,$EventKey);
+//                fclose($fp);
                 if(($Event == 'SCAN' || $Event == 'subscribe') && $EventKey && ($EventKey != $FromUserName)){
                     $addFriend = new FriendShip($FromUserName, $EventKey);
                     $flag = $addFriend->isFriendShip();

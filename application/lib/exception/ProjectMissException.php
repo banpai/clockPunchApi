@@ -1,15 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: 29423
- * Date: 2017/11/28 0028
- * Time: 11:34
- */
 
 namespace app\lib\exception;
 
 
-class ProjectMissException
+class ProjectMissException extends BaseException
 {
-
+    public $code = 200;
+    public $msg = '项目还没有配置ing~';
+    public $errorCode = 60002;
 }

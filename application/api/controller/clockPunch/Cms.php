@@ -96,6 +96,7 @@ class Cms
             }
             $Time = time();
             $createTime = date("Y-m-d H:i:s", $Time);
+            $runTime->id = 1;
             $runTime->createTime = $createTime;
             $runTime->updateTime = $createTime;
             if($time == -1){

@@ -9,6 +9,7 @@
 namespace app\api\controller\clockPunch;
 
 use app\api\model\Project as ProjectModel;
+use app\lib\exception\ProjectMissException;
 
 class Project
 {
@@ -18,6 +19,9 @@ class Project
     public function getData(){
         $dom = new ProjectModel();
         $data = $dom->getProject();
+        if(!$data){
+            throw new ProjectMissException();
+        }
         return $data;
     }
     /*

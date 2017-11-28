@@ -32,9 +32,14 @@ class Project extends Model
      * 修改id为1的数据
      */
     public function changeProject($data){
-        $project = $this::get(1);
         $Time = time();
         $createTime = date("Y-m-d H:i:s", $Time);
+        $project = $this::get(1);
+        if(!$project){
+            $project = new $this();
+            $project->createTime = $createTime;
+        }
+        $project->id = 1;
         if($data['title']){
             $project->title = $data['title'];
         }

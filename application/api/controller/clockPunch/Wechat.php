@@ -14,6 +14,7 @@ use app\api\validate\OpenidValidate;
 use app\api\validate\OtherOpenidValidate;
 use app\api\model\Wechat as WechatModel;
 use app\api\model\Invitation as InvitationModel;
+use app\lib\exception\ProjectMissException;
 use think\Db;
 use think\Session;
 use app\api\model\ShowCard as ShowCardModel;
@@ -99,7 +100,7 @@ class Wechat
             ];
             return $bData;
         }else{
-            return '没有数据，生成不了邀请卡';
+            throw new ProjectMissException();
         }
     }
     /**
@@ -167,7 +168,7 @@ class Wechat
             ];
             return $bData;
         }else{
-            return '没有数据，生成不了打卡图';
+            throw new ProjectMissException();
         }
     }
 

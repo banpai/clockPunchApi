@@ -35,8 +35,7 @@ class ShowCard
                 if(!$data){
                     $data = new ShowCardModel();
                 }
-                $data->position = $position;
-                $data->size = $size;
+                $data->id = 1;
                 $data->image = $path;
                 $data->createTime = $createTime;
                 $data->updateTime = $createTime;
@@ -52,12 +51,11 @@ class ShowCard
             if(!$data){
                 $data = new ShowCardModel();
             }
-            $data->position = $position;
+            $data->id = 1;
             $data->createTime = $createTime;
             $data->flag = 1;
             $data->updateTime = $createTime;
             $data->wellKnow = $wellKnow;
-            $data->size = $size;
             $data->save();
         }
         $tmp = new WechatModel();
