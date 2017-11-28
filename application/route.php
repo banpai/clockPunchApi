@@ -54,6 +54,8 @@ Route::post('/api/clockPunch/cms/runtime/getData', 'api/clockPunch.Cms/getTime')
 Route::get('/api/clockPunch/cms/runTime', 'api/clockPunch.Cms/runTime');
 Route::get('/api/clockPunch/cms/sendAllTemplet', 'api/clockPunch.Cms/sendAllTemplet');
 Route::post('/api/clockPunch/cms/ShowData/getMembers', 'api/clockPunch.ShowData/getMembers');
+Route::post('/api/clockPunch/cms/ShowData/getPunchDate', 'api/clockPunch.ShowData/getPunchDate');
+Route::post('/api/clockPunch/cms/ShowData/getFriendsDate', 'api/clockPunch.ShowData/getFriendsDate');
 // 微信端接口
 Route::any('/api/clockPunch/checkSignature', 'api/clockPunch.Init/checkSignature');
 Route::post('/api/clockPunch/jssdk', 'api/clockPunch.Init/getJssdk');
